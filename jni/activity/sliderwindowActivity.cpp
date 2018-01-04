@@ -4,7 +4,6 @@
 #include "sliderwindowActivity.h"
 
 /*TAG:GlobalVariable全局变量*/
-static ZKEditText* mEdittext1Ptr;
 static ZKTextView* mTextWifiPtr;
 static ZKTextView* mTextTimePtr;
 static ZKTextView* mTextDatePtr;
@@ -93,7 +92,6 @@ typedef struct {
 }S_EditTextInputCallback;
 /*TAG:EditTextInputCallback*/
 static S_EditTextInputCallback SEditTextInputCallbackTab[] = {
-    ID_SLIDERWINDOW_Edittext1, onEditTextChanged_Edittext1,
 };
 
 typedef void (*VideoViewCallback)(ZKVideoView *pVideoView, int msg);
@@ -129,7 +127,6 @@ const char* sliderwindowActivity::getAppName() const{
 //TAG:onCreate
 void sliderwindowActivity::onCreate() {
 	Activity::onCreate();
-    mEdittext1Ptr = (ZKEditText*)findControlByID(ID_SLIDERWINDOW_Edittext1);if(mEdittext1Ptr!= NULL){mEdittext1Ptr->setTextChangeListener(this);}
     mTextWifiPtr = (ZKTextView*)findControlByID(ID_SLIDERWINDOW_TextWifi);
     mTextTimePtr = (ZKTextView*)findControlByID(ID_SLIDERWINDOW_TextTime);
     mTextDatePtr = (ZKTextView*)findControlByID(ID_SLIDERWINDOW_TextDate);

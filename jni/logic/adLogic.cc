@@ -56,6 +56,7 @@ public:
 				mButton1Ptr->setVisible(false);
 				mButtonConnectSevPtr->setVisible(false);
 				mTextview1Ptr->setText("");
+				mwindowReadmePtr->hideWnd();
 				bHavePic = true;
 				adpath = msg;
 				mTextview1Ptr->setBackgroundPic(msg);

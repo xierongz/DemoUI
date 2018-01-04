@@ -27,7 +27,6 @@
 #include "window/ZKSlideWindow.h"
 
 /*TAG:Macro宏ID*/
-#define ID_SLIDERWINDOW_Edittext1    51001
 #define ID_SLIDERWINDOW_TextWifi    50006
 #define ID_SLIDERWINDOW_TextTime    50005
 #define ID_SLIDERWINDOW_TextDate    50003
