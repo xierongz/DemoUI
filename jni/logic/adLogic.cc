@@ -30,7 +30,7 @@
 */
 
 
-#include "net/WifiManager.h"
+#include "net/NetManager.h"
 #include "SocketClient.h"
 #include <string>
 #include "os/SystemProperties.h"
@@ -70,7 +70,7 @@ static void onUI_init(){
     //Tips :添加 UI初始化的显示代码到这里,如:mText1->setText("123");
 	mSocket = new SocketClient();
 	bSocketConnect = false;
-	if(!WIFIMANAGER->isConnected()){
+	if(!NETMANAGER->getWifiManager()->isConnected()){
 		mTextview1Ptr->setText("WiFi 未连接...");
 	}
 	mSocket->setSocketListener(&mWifiSocket);
@@ -91,11 +91,11 @@ static bool onUI_Timer(int id){
     //Tips:添加定时器响应的代码到这里,但是需要在本文件的 REGISTER_ACTIVITY_TIMER_TAB 数组中 注册
     //id 是定时器设置时候的标签,这里不要写耗时的操作，否则影响UI刷新,ruturn:[true] 继续运行定时器;[false] 停止运行当前定时器
 
-	if(!WIFIMANAGER->isConnected()){
+	if(!NETMANAGER->getWifiManager()->isConnected()){
 		mTextview1Ptr->setText("WiFi 未连接...");
 	}else{
 		if(!bHavePic){
-			WifiInfo* info = WIFIMANAGER->getConnectionInfo();
+			WifiInfo* info = NETMANAGER->getWifiManager()->getConnectionInfo();
 			mTextview1Ptr->setText("WiFi 已连接到："+info->getSsid());
 		}
 	}

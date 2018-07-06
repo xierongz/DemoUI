@@ -21,7 +21,7 @@
 #include <unistd.h>
 #include <errno.h>
 
-#include "net/WifiManager.h"
+#include "net/NetManager.h"
 
 #define URL_TIME	"http://www.baidu.com"
 
@@ -163,12 +163,12 @@ bool HttpThread::threadLoop(){
 	LOGD("HttpThread Thread run\n");
 	while(1){
 		sleep(1000);
-		bool bOpen = WIFIMANAGER->isWifiEnable();// mWifiManager->isWifiEnable();
+		bool bOpen = NETMANAGER->getWifiManager()->isWifiEnable();// mWifiManager->isWifiEnable();
 		if(bOpen){
 			while(1){
 
-				if(WIFIMANAGER->isSupported()){
-					if(!WIFIMANAGER->isConnected()){
+				if(NETMANAGER->getWifiManager()->isSupported()){
+					if(!NETMANAGER->getWifiManager()->isConnected()){
 						LOGD("wifi disconnect....................\n");
 						sleep(1000);
 						continue;

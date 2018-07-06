@@ -24,6 +24,8 @@ public:
 
 	HDC snapshot() const;
 
+	void updateLocales();
+
 protected:
 	virtual const char* getAppName() const { return NULL; }
 

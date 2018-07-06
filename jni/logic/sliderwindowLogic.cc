@@ -29,7 +29,7 @@
 
 
 #include "utils/TimeHelper.h"
-#include "net/WifiManager.h"
+#include "net/NetManager.h"
 
 
 extern WifiManager *mWifiManager;
@@ -48,9 +48,9 @@ static void updateUI_time(){
 	sprintf(timeStr, "%d年%02d月%02d日", 1900 + t->tm_year, t->tm_mon + 1, t->tm_mday);
 	mTextDatePtr->setText(timeStr);
 
-	if(WIFIMANAGER->isSupported()){
-		if(WIFIMANAGER->isConnected()){
-			WifiInfo* info = WIFIMANAGER->getConnectionInfo();
+	if(NETMANAGER->getWifiManager()->isSupported()){
+		if(NETMANAGER->getWifiManager()->isConnected()){
+			WifiInfo* info = NETMANAGER->getWifiManager()->getConnectionInfo();
 			mTextWifiPtr->setText(info->getLevel());
 		}else{
 			mTextWifiPtr->setText("");
