@@ -44,7 +44,7 @@ static S_ACTIVITY_TIMEER REGISTER_ACTIVITY_TIMER_TAB[] = {
 static void onUI_init(){
     //Tips :添加 UI初始化的显示代码到这里,如:mText1->setText("123");
 	char buff[20];
-	sprintf(buff,"/res/ui/ad/%d.jpg",adindex);
+	snprintf(buff, sizeof(buff), "ad/%d.jpg", adindex);
 	mTextview1Ptr->setBackgroundPic(buff);
 }
 
@@ -64,7 +64,7 @@ static bool onUI_Timer(int id){
 		adindex = 1;
 	}
 	char buff[20];
-	sprintf(buff,"/res/ui/ad/%d.jpg",adindex);
+	snprintf(buff, sizeof(buff), "ad/%d.jpg", adindex);
 	mTextview1Ptr->setBackgroundPic(buff);
     return true;
 }
